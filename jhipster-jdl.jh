@@ -1,0 +1,30 @@
+entity Player{
+name String,
+surname String,
+ birthdate LocalDate,
+nbaskets Integer,
+nassists Integer,
+nrebots Integer, 
+pos Position
+}
+
+enum Position {
+    ALERO, BASE, PIVOT
+}
+
+entity Team {
+name String,
+city String,
+fundate LocalDate,
+nsocios Integer
+
+}
+
+relationship ManyToOne {
+	Player{team(name)} to Team{player}
+}
+
+
+paginate Team, Player with infinite-scroll
+
+
